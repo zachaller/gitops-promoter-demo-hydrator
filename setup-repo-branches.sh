@@ -11,7 +11,9 @@ cat <<- EOF > hydrator.metadata
 EOF
 git add hydrator.metadata
 git commit -m "inital environment setup"
-git push --set-upstream origin environment/development
+git push --force --set-upstream origin environment/development
+git checkout -b environment/development-next
+git push --force --set-upstream origin environment/development-next
 
 #git checkout --orphan environment/staging
 #git checkout --orphan environment/production
