@@ -18,6 +18,7 @@ git commit -m "inital environment setup"
 git push --force --set-upstream origin environment/development
 git checkout -b environment/development-next
 git push --force --set-upstream origin environment/development-next
+git checkout main
 
 
 
@@ -43,6 +44,7 @@ git commit -m "inital environment setup"
 git push --force --set-upstream origin environment/staging
 git checkout -b environment/staging-next
 git push --force --set-upstream origin environment/staging-next
+git checkout main
 
 
 
@@ -62,6 +64,4 @@ git commit -m "inital environment setup"
 git push --force --set-upstream origin environment/production
 git checkout -b environment/production-next
 git push --force --set-upstream origin environment/production-next
-
-
 git checkout main
