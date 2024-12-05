@@ -24,7 +24,7 @@ kustomize build staging/integration > manifest.yaml-integration-next
 git checkout environment/staging-next
 rm e2e/manifest.yaml
 mv manifest.yaml-e2e-next e2e/manifest.yaml
-mv manifest.yaml-inegration-next integration/manifest.yaml
+mv manifest.yaml-integration-next integration/manifest.yaml
 SHA=`git rev-parse main`
 echo "Writing metadata file for staging environment with dry sha: $SHA"
 cat <<- EOF > hydrator.metadata
