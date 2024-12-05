@@ -24,6 +24,10 @@ git push --force --set-upstream origin environment/development-next
 echo "Seting up environment/staging"
 git branch -D environment/staging
 git branch -D environment/staging-next
+mkdir e2e
+kustomize build staging/e2e > e2e/manifest.yaml
+mkdir integration
+kustomize build staging/integration > integration/manifest.yaml
 git checkout --orphan environment/staging
 echo "Cleaning environment/staging"
 git rm -rf .
@@ -33,6 +37,8 @@ cat <<- EOF > hydrator.metadata
 {"drySHA": "$SHA"}
 EOF
 git add hydrator.metadata
+git add e2e
+git add integration
 git commit -m "inital environment setup"
 git push --force --set-upstream origin environment/staging
 git checkout -b environment/staging-next
