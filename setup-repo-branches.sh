@@ -12,6 +12,7 @@ cat <<- EOF > hydrator.metadata
 {"drySHA": "$SHA"}
 EOF
 git add hydrator.metadata
+kustomize build development/ > manifest.yaml
 git commit -m "inital environment setup"
 git push --force --set-upstream origin environment/development
 git checkout -b environment/development-next
