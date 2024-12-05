@@ -51,6 +51,10 @@ git checkout main
 echo "Seting up environment/production"
 git branch -D environment/production
 git branch -D environment/production-next
+mkdir us-east-2
+kustomize build production/us-east-2 > us-east-2/manifest.yaml
+mkdir us-west-1
+kustomize build production/us-west-1 > us-west-1/manifest.yaml
 git checkout --orphan environment/production
 echo "Cleaning environment/production"
 git rm -rf .
@@ -60,6 +64,8 @@ cat <<- EOF > hydrator.metadata
 {"drySHA": "$SHA"}
 EOF
 git add hydrator.metadata
+git add us-east-2
+git add us-west-1
 git commit -m "inital environment setup"
 git push --force --set-upstream origin environment/production
 git checkout -b environment/production-next
