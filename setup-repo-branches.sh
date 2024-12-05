@@ -39,7 +39,7 @@ git push --force --set-upstream origin environment/staging
 git checkout -b environment/staging-next
 git push --force --set-upstream origin environment/staging-next
 
-
+git checkout main
 
 
 #git checkout --orphan environment/staging
