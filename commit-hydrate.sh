@@ -13,5 +13,5 @@ cat <<- EOF > hydrator.metadata
 EOF
 git add hydrator.metadata
 git add manifest.yaml
-git commit -a -m "hydrataing commit $SHA"
-git push -y origin environment/development-next
+git commit -a -m "hydration of dry commit $SHA"
+git push -u origin environment/development-next
