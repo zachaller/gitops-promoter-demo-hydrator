@@ -21,7 +21,7 @@ git push -u origin environment/development-next
 
 kustomize build staging/e2e > manifest.yaml-e2e-next
 kustomize build staging/integration > manifest.yaml-integration-next
-git checkout environment/development-next
+git checkout environment/staging-next
 rm e2e/manifest.yaml
 mv manifest.yaml-e2e-next e2e/manifest.yaml
 mv manifest.yaml-inegration-next integration/manifest.yaml
