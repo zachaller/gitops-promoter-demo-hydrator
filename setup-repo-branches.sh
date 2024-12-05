@@ -5,6 +5,8 @@ echo "Seting up environment/development"
 git checkout --orphan environment/development
 echo "Cleaning environment/development"
 git rm -rf .
+git branch -D environment/development
+git branch -D environment/development-next
 SHA=`git rev-parse main`
 echo "Writing metadata file for development environment with dry sha: $SHADEV"
 cat <<- EOF > hydrator.metadata
@@ -24,6 +26,8 @@ echo "Seting up environment/staging"
 git checkout --orphan environment/staging
 echo "Cleaning environment/staging"
 git rm -rf .
+git branch -D environment/staging
+git branch -D environment/staging-next
 SHA=`git rev-parse main`
 echo "Writing metadata file for development environment with dry sha: $SHADEV"
 cat <<- EOF > hydrator.metadata
