@@ -1,0 +1,44 @@
+apiVersion: v1
+data:
+  appID: <your appid>
+  installationID: <your installationid>
+  privateKey: <your private key>
+kind: Secret
+metadata:
+  name: auth-promotion
+type: Opaque
+---
+apiVersion: promoter.argoproj.io/v1alpha1
+kind: ScmProvider
+metadata:
+  name: github
+spec:
+  github: {}
+  secretRef:
+    name: auth-promotion
+---
+apiVersion: promoter.argoproj.io/v1alpha1
+kind: GitRepository
+metadata:
+  name: gitops-promoter-demo
+spec:
+  name: gitops-promoter-demo-hydrator
+  owner: <your org/username>
+  scmProviderRef:
+    name: github
+---
+apiVersion: promoter.argoproj.io/v1alpha1
+kind: PromotionStrategy
+metadata:
+  annotations:
+  name: promoter-demo
+spec:
+  environments:
+    - autoMerge: false
+      branch: environment/development
+    - autoMerge: false
+      branch: environment/staging
+    - autoMerge: false
+      branch: environment/production
+  gitRepositoryRef:
+    name: gitops-promoter-demo
