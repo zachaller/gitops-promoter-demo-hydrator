@@ -14,7 +14,6 @@ cat <<- EOF > hydrator.metadata
 EOF
 git add hydrator.metadata
 git add manifest.yaml
-kustomize build development/ > manifest.yaml
 git commit -m "inital environment setup"
 git push --force --set-upstream origin environment/development
 git checkout -b environment/development-next
