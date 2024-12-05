@@ -3,6 +3,7 @@
 echo "Seting up environment/development"
 git branch -D environment/development
 git branch -D environment/development-next
+kustomize build development/ > manifest.yaml
 git checkout --orphan environment/development
 echo "Cleaning environment/development"
 git rm -rf .
@@ -12,6 +13,7 @@ cat <<- EOF > hydrator.metadata
 {"drySHA": "$SHA"}
 EOF
 git add hydrator.metadata
+git add manifest.yaml
 kustomize build development/ > manifest.yaml
 git commit -m "inital environment setup"
 git push --force --set-upstream origin environment/development
