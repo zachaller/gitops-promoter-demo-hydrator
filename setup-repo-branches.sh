@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 echo "Seting up environment/development"
 git branch -D environment/development
 git branch -D environment/development-next
@@ -17,8 +16,6 @@ git commit -m "inital environment setup"
 git push --force --set-upstream origin environment/development
 git checkout -b environment/development-next
 git push --force --set-upstream origin environment/development-next
-
-
 
 
 
