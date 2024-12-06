@@ -2,6 +2,13 @@
 
 This demo is a very quick and dirty repo in order to test the GitOps Promoter without an ArgoCD hydrator.
 
+## Prerequisite
+
+These must be findable on your PATH
+
+* Git CLI
+* kustomize CLI
+
 ## How to use
 
 * Fork Repo
